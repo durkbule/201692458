@@ -86,7 +86,7 @@ struct tbl {
 typedef int (*criteria_t) (void *elm, void *data);
 typedef int (*do_t) (void *elm, void *data);
 
-static inline int crit_none(void *foo, void *bar)
+static inline int crit_none(void *foo, void *bar)   //标准无
 {
 	return 1;
 }

@@ -31,10 +31,10 @@ int NSCLASS dsr_recv(struct dsr_pkt *dp)
 	int i = 0, action;
 	int mask = DSR_PKT_NONE;
 
-	/* Process DSR Options */
+	/* Process DSR Options */             //处理DSR选项
 	action = dsr_opt_recv(dp);
 
-	/* Add mac address of previous hop to the neighbor table */
+	/* Add mac address of previous hop to the neighbor table */  //将上一跳的mac地址添加到neighbor 表
 
 	if (dp->flags & PKT_PROMISC_RECV) {
 		dsr_pkt_free(dp);
@@ -121,13 +121,13 @@ void NSCLASS dsr_start_xmit(struct dsr_pkt *dp)
 	int res;
 
 	if (!dp) {
-		DEBUG("Could not allocate DSR packet\n");
+		DEBUG("Could not allocate DSR packet\n");   //不能分配、指定DSR分组
 		return;
 	}
 
 	dp->srt = dsr_rtc_find(dp->src, dp->dst);
 
-	if (dp->srt) {
+	if (dp->srt) {                           //检查是否可以进行 源路由
 
 		if (dsr_srt_add(dp) < 0) {
 			DEBUG("Could not add source route\n");

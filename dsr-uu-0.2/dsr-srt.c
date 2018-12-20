@@ -292,11 +292,11 @@ int dsr_srt_check_duplicate(struct dsr_srt *srt)
 	return res;
 }
 struct dsr_srt_opt *dsr_srt_opt_add(char *buf, int len, int flags, 
-				    int salvage, struct dsr_srt *srt)
+				    int salvage, struct dsr_srt *srt)                      //添加源路由选项
 {
 	struct dsr_srt_opt *srt_opt;
 
-	if (len < (int)DSR_SRT_OPT_LEN(srt))
+	if (len < (int)DSR_SRT_OPT_LEN(srt))     //判断长度
 		return NULL;
 
 	srt_opt = (struct dsr_srt_opt *)buf;

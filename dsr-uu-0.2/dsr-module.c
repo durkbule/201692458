@@ -5,7 +5,7 @@
  *
  * Author: Erik Nordström, <erikn@it.uu.se>
  */
-#include <linux/config.h>
+#include <linux/config.h>   //模块
 #include <linux/version.h>
 #include <linux/module.h>
 #include <linux/init.h>

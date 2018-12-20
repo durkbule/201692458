@@ -197,7 +197,7 @@ dsr_rrep_add_srt(struct dsr_rrep_opt *rrep_opt, struct dsr_srt *srt)
 	return 0;
 }
 
-static struct dsr_rrep_opt *dsr_rrep_opt_add(char *buf, int len,
+static struct dsr_rrep_opt *dsr_rrep_opt_add(char *buf, int len,       //添加路由应答选项
 					     struct dsr_srt *srt)
 {
 	struct dsr_rrep_opt *rrep_opt;
@@ -218,7 +218,7 @@ static struct dsr_rrep_opt *dsr_rrep_opt_add(char *buf, int len,
 	return rrep_opt;
 }
 
-int NSCLASS dsr_rrep_send(struct dsr_srt *srt, struct dsr_srt *srt_to_me)
+int NSCLASS dsr_rrep_send(struct dsr_srt *srt, struct dsr_srt *srt_to_me)         //发送路由应答
 {
 	struct dsr_pkt *dp = NULL;
 	char *buf;
@@ -325,7 +325,7 @@ int NSCLASS dsr_rrep_send(struct dsr_srt *srt, struct dsr_srt *srt_to_me)
 	return -1;
 }
 
-int NSCLASS dsr_rrep_opt_recv(struct dsr_pkt *dp, struct dsr_rrep_opt *rrep_opt)
+int NSCLASS dsr_rrep_opt_recv(struct dsr_pkt *dp, struct dsr_rrep_opt *rrep_opt)   //接收路由应答选项
 {
 	struct in_addr myaddr, srt_dst;
 	struct dsr_srt *rrep_opt_srt;
@@ -382,7 +382,7 @@ int __init NSCLASS grat_rrep_tbl_init(void)
 	return 0;
 }
 
-void __exit NSCLASS grat_rrep_tbl_cleanup(void)
+void __exit NSCLASS grat_rrep_tbl_cleanup(void)       
 {
 	tbl_flush(&grat_rrep_tbl, NULL);
 

@@ -22,7 +22,7 @@
 #include "dsr-srt.h"
 #include "dsr-ack.h"
 
-struct dsr_opt_hdr *dsr_opt_hdr_add(char *buf, unsigned int len, 
+struct dsr_opt_hdr *dsr_opt_hdr_add(char *buf, unsigned int len,        //添加一个选项头
 				    unsigned int protocol)
 {
 	struct dsr_opt_hdr *opt_hdr;
@@ -115,7 +115,7 @@ int NSCLASS dsr_opt_remove(struct dsr_pkt *dp)
 	return len;
 }
 
-int dsr_opt_parse(struct dsr_pkt *dp)   //解析包
+int dsr_opt_parse(struct dsr_pkt *dp)
 {
 	int dsr_len, l, n = 0;
 	struct dsr_opt *dopt;
@@ -208,7 +208,7 @@ int dsr_opt_parse(struct dsr_pkt *dp)   //解析包
 	return n;
 }
 
-int NSCLASS dsr_opt_recv(struct dsr_pkt *dp)
+int NSCLASS dsr_opt_recv(struct dsr_pkt *dp)     //接收并处理DSR选项
 {
 	int dsr_len, l;
 	int action = 0;

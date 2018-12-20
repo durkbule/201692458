@@ -15,20 +15,20 @@
 #include <linux/in.h>
 #endif
 
-#define MAX_RREP_OPTS 10
-#define MAX_RERR_OPTS 10
-#define MAX_ACK_OPTS  10
+#define MAX_RREP_OPTS 10           //最大路由请求选项
+#define MAX_RERR_OPTS 10          //最大路由错误选项
+#define MAX_ACK_OPTS  10          // 最大ACK选项
 
 #define DEFAULT_TAILROOM 128
 
 /* Internal representation of a packet. For portability */
-struct dsr_pkt {
+struct dsr_pkt {                                   //可移植，包（分组）的内部表示
 	struct in_addr src;	/* IP level data */
-	struct in_addr dst;
-	struct in_addr nxt_hop;
+	struct in_addr dst;      //目标（IP）地址
+	struct in_addr nxt_hop;  //下一跳
 	struct in_addr prv_hop;
 	int flags;
-	int salvage;
+	int salvage;            //打捞（补救）字
 #ifdef NS2
 	union {
 		struct hdr_mac *ethh;
@@ -65,7 +65,7 @@ struct dsr_pkt {
 	struct dsr_rerr_opt *rerr_opt[MAX_RERR_OPTS];
 	struct dsr_ack_opt *ack_opt[MAX_ACK_OPTS];
 	struct dsr_ack_req_opt *ack_req_opt;
-	struct dsr_srt *srt;	/* Source route */
+	struct dsr_srt *srt;	/* Source route */   //srt 源路由
 
 
 	int payload_len;
@@ -114,9 +114,9 @@ struct dsr_pkt *dsr_pkt_alloc(Packet * p);
 #else
 struct dsr_pkt *dsr_pkt_alloc(struct sk_buff *skb);
 #endif
-char *dsr_pkt_alloc_opts(struct dsr_pkt *dp, int len);
+char *dsr_pkt_alloc_opts(struct dsr_pkt *dp, int len);             //一些函数定义
 char *dsr_pkt_alloc_opts_expand(struct dsr_pkt *dp, int len);
-void dsr_pkt_free(struct dsr_pkt *dp);
+void dsr_pkt_free(struct dsr_pkt *dp);        //释放一个包（分组）
 int dsr_pkt_free_opts(struct dsr_pkt *dp);
 
 #endif				/* _DSR_PKT_H */

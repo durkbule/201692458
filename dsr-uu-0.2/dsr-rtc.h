@@ -5,7 +5,7 @@
  *
  * Author: Erik Nordström, <erikn@it.uu.se>
  */
-#ifndef _DSR_RTC_H
+#ifndef _DSR_RTC_H         //what is RTC???
 #define _DSR_RTC_H
 
 #ifdef __KERNEL__

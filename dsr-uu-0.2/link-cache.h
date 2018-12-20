@@ -15,7 +15,7 @@
 
 #ifndef NO_GLOBALS
 
-struct lc_graph {
+struct lc_graph {   // lc link-cache
 	struct tbl nodes;
 	struct tbl links;
 	struct lc_node *src;

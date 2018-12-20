@@ -5,7 +5,7 @@
  *
  * Author: Erik Nordström, <erikn@it.uu.se>
  */
-#ifndef _MAINT_BUF_H
+#ifndef _MAINT_BUF_H              //maintain buffer
 #define _MAINT_BUF_H
 
 #ifndef NO_DECLS

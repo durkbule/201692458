@@ -5,7 +5,7 @@
  *
  * Author: Erik Nordström, <erikn@it.uu.se>
  */
-#ifndef _DSR_RREP_H
+#ifndef _DSR_RREP_H        //路由应答
 #define _DSR_RREP_H
 
 #include "dsr.h"
@@ -13,7 +13,7 @@
 
 #ifndef NO_GLOBALS
 
-struct dsr_rrep_opt {
+struct dsr_rrep_opt {                  //路由应答选项
 	u_int8_t type;
 	u_int8_t length;
 #if defined(__LITTLE_ENDIAN_BITFIELD)
@@ -38,10 +38,10 @@ struct dsr_rrep_opt {
 
 #ifndef NO_DECLS
 
-int dsr_rrep_opt_recv(struct dsr_pkt *dp, struct dsr_rrep_opt *rrep_opt);
-int dsr_rrep_send(struct dsr_srt *srt, struct dsr_srt *srt_to_me);
+int dsr_rrep_opt_recv(struct dsr_pkt *dp, struct dsr_rrep_opt *rrep_opt);    //接收路由应答选项
+int dsr_rrep_send(struct dsr_srt *srt, struct dsr_srt *srt_to_me);           //发送路由应答
 
-void grat_rrep_tbl_timeout(unsigned long data);
+void grat_rrep_tbl_timeout(unsigned long data);                       
 int grat_rrep_tbl_add(struct in_addr src, struct in_addr prev_hop);
 int grat_rrep_tbl_find(struct in_addr src, struct in_addr prev_hop);
 int grat_rrep_tbl_init(void);

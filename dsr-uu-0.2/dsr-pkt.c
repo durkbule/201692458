@@ -18,7 +18,7 @@
 #include "dsr-opt.h"
 #include "dsr.h"
 
-char *dsr_pkt_alloc_opts(struct dsr_pkt *dp, int len)     //包分配选项
+char *dsr_pkt_alloc_opts(struct dsr_pkt *dp, int len)
 {
 	if (!dp)
 		return NULL;
@@ -198,7 +198,7 @@ struct dsr_pkt *dsr_pkt_alloc(struct sk_buff *skb)
 
 #endif
 
-void dsr_pkt_free(struct dsr_pkt *dp)
+void cdsr_pkt_free(struct dsr_pkt *dp)
 {
 
 	if (!dp)

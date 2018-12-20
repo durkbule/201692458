@@ -18,13 +18,13 @@
 #ifndef NO_GLOBALS
 
 /* Generic header for all options */
-struct dsr_opt {
+struct dsr_opt {        //dsr 选项
 	u_int8_t type;
 	u_int8_t length;
 };
 
 /* The DSR options header (always comes first) */
-struct dsr_opt_hdr {
+struct dsr_opt_hdr {  //DSR选项头部
 	u_int8_t nh;
 #if defined(__LITTLE_ENDIAN_BITFIELD)
 
@@ -104,7 +104,7 @@ struct iphdr *dsr_build_ip(struct dsr_pkt *dp, struct in_addr src,
 #ifndef NO_DECLS
 
 int dsr_opt_remove(struct dsr_pkt *dp);
-int dsr_opt_recv(struct dsr_pkt *dp);
+int dsr_opt_recv(struct dsr_pkt *dp);   //接收并处理DSR选项
 
 #endif				/* NO_DECLS */
 

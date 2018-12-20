@@ -20,7 +20,7 @@
 /* Source route options header */
 /* TODO: This header is not byte order correct... is there a simple way to fix
  * it? */
-struct dsr_srt_opt {
+struct dsr_srt_opt {           // DSR 源路由选项
 	u_int8_t type;
 	u_int8_t length;
 #if defined(__LITTLE_ENDIAN_BITFIELD)	
@@ -54,9 +54,9 @@ struct dsr_srt_opt {
 #define SRT_BIDIR 0x1
 
 /* Internal representation of a source route */
-struct dsr_srt {
-	struct in_addr src;
-	struct in_addr dst;
+struct dsr_srt {                       //源路由
+	struct in_addr src; //源IP
+	struct in_addr dst; //目的IP
 	unsigned short flags;
 	unsigned short index;
 	unsigned int laddrs;	/* length in bytes if addrs */
@@ -82,9 +82,9 @@ static inline char *print_srt(struct dsr_srt *srt)
 		len = sprintf(buf + len, "%s", print_ip(srt->dst));
 	return buf;
 }
-struct in_addr dsr_srt_next_hop(struct dsr_srt *srt, int sleft);
-struct in_addr dsr_srt_prev_hop(struct dsr_srt *srt, int sleft);
-struct dsr_srt_opt *dsr_srt_opt_add(char *buf, int len, int flags, int salvage, struct dsr_srt *srt);
+struct in_addr dsr_srt_next_hop(struct dsr_srt *srt, int sleft);   //源路由下一跳
+struct in_addr dsr_srt_prev_hop(struct dsr_srt *srt, int sleft);   //源路由上一跳
+struct dsr_srt_opt *dsr_srt_opt_add(char *buf, int len, int flags, int salvage, struct dsr_srt *srt); //添加源路由
 struct dsr_srt *dsr_srt_new(struct in_addr src, struct in_addr dst,
 			    unsigned int length, char *addrs);
 struct dsr_srt *dsr_srt_new_rev(struct dsr_srt *srt);
@@ -96,8 +96,8 @@ struct dsr_srt *dsr_srt_new_split(struct dsr_srt *srt, struct in_addr addr);
 
 #ifndef NO_DECLS
 
-int dsr_srt_add(struct dsr_pkt *dp);
-int dsr_srt_opt_recv(struct dsr_pkt *dp, struct dsr_srt_opt *srt_opt);
+int dsr_srt_add(struct dsr_pkt *dp);       //添加源路由
+int dsr_srt_opt_recv(struct dsr_pkt *dp, struct dsr_srt_opt *srt_opt);  //接收源路由选项
 
 #endif				/* NO_DECLS */
 

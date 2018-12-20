@@ -22,7 +22,7 @@
 #include "link-cache.h"
 #include "maint-buf.h"
 
-static struct dsr_rerr_opt *dsr_rerr_opt_add(char *buf, int len,
+static struct dsr_rerr_opt *dsr_rerr_opt_add(char *buf, int len,       //添加路由错误选项
 					     int err_type,
 					     struct in_addr err_src,
 					     struct in_addr err_dst,
@@ -60,7 +60,7 @@ static struct dsr_rerr_opt *dsr_rerr_opt_add(char *buf, int len,
 	return rerr_opt;
 }
 
-int NSCLASS dsr_rerr_send(struct dsr_pkt *dp_trigg, struct in_addr unr_addr)
+int NSCLASS dsr_rerr_send(struct dsr_pkt *dp_trigg, struct in_addr unr_addr)  //发送路由错误
 {
 	struct dsr_pkt *dp;
 	struct dsr_rerr_opt *rerr_opt;
@@ -203,7 +203,7 @@ int NSCLASS dsr_rerr_send(struct dsr_pkt *dp_trigg, struct in_addr unr_addr)
 
 }
 
-int NSCLASS dsr_rerr_opt_recv(struct dsr_pkt *dp, struct dsr_rerr_opt *rerr_opt)
+int NSCLASS dsr_rerr_opt_recv(struct dsr_pkt *dp, struct dsr_rerr_opt *rerr_opt)  //接收路由错误选项
 {
 	struct in_addr err_src, err_dst, unr_addr;
 

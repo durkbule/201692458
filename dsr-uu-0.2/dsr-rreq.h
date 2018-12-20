@@ -5,7 +5,7 @@
  *
  * Author: Erik Nordström, <erikn@it.uu.se>
  */
-#ifndef _DSR_RREQ_H
+#ifndef _DSR_RREQ_H         //路由请求
 #define _DSR_RREQ_H
 
 #include "dsr.h"
@@ -16,7 +16,7 @@
 
 #ifndef NO_GLOBALS
 
-struct dsr_rreq_opt {
+struct dsr_rreq_opt {         //路由请求选项
 	u_int8_t type;
 	u_int8_t length;
 	u_int16_t id;

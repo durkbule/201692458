@@ -16,7 +16,7 @@
 
 #ifndef NO_GLOBALS
 
-struct dsr_rerr_opt {
+struct dsr_rerr_opt {            //路由错误选项
 	u_int8_t type;
 	u_int8_t length;
 	u_int8_t err_type;
@@ -49,8 +49,8 @@ struct node_unreach_info {
 
 #ifndef NO_DECLS
 
-int dsr_rerr_send(struct dsr_pkt *dp_trigg, struct in_addr unr_addr);
-int dsr_rerr_opt_recv(struct dsr_pkt *dp, struct dsr_rerr_opt *dsr_rerr_opt);
+int dsr_rerr_send(struct dsr_pkt *dp_trigg, struct in_addr unr_addr);   //发送路由错误
+int dsr_rerr_opt_recv(struct dsr_pkt *dp, struct dsr_rerr_opt *dsr_rerr_opt); //接收路由错误选项
 
 #endif				/* NO_DECLS */
 

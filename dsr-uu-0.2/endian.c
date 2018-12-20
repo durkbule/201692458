@@ -19,7 +19,7 @@
 
 #include <stdio.h>
 
-int litend(void)
+int litend(void)          //一个函数
 {
 	int i = 0;
 	((char *)(&i))[0] = 1;

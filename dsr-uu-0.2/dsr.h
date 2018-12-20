@@ -119,7 +119,7 @@ static struct {
 	"MAX_SALVAGE_COUNT", 15, QUANTA}
 };
 
-struct dsr_node {
+struct dsr_node {             //结点定义
 	struct in_addr ifaddr;
 	struct in_addr bcaddr;
 	unsigned int confvals[CONFVAL_MAX];
@@ -175,7 +175,7 @@ static inline int set_confval(enum confval cv, unsigned int val)
 	return val;
 }
 
-static inline void dsr_node_init(struct dsr_node *dn, char *ifname)
+static inline void dsr_node_init(struct dsr_node *dn, char *ifname)   //节点初始化
 {
 	int i;
 	dn->slave_indev = NULL;
