@@ -544,7 +544,7 @@ out_err:
 }
 
 /* Main receive function for packets originated in user space */
-static int dsr_dev_start_xmit(struct sk_buff *skb, struct net_device *dev)
+static int dsr_dev_start_xmit(struct sk_buff *skb, struct net_device *dev)    //数据包接受功能
 {
 	struct dsr_node *dnode = (struct dsr_node *)dev->priv;
 	struct ethhdr *ethh;

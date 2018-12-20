@@ -115,7 +115,7 @@ int NSCLASS dsr_opt_remove(struct dsr_pkt *dp)
 	return len;
 }
 
-int dsr_opt_parse(struct dsr_pkt *dp)
+int dsr_opt_parse(struct dsr_pkt *dp)   //解析包
 {
 	int dsr_len, l, n = 0;
 	struct dsr_opt *dopt;

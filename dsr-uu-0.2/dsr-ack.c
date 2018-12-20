@@ -14,7 +14,7 @@
 #include "ns-agent.h"
 #endif
 
-#include "tbl.h"             //头文件
+#include "tbl.h"
 #include "debug.h"
 #include "dsr-opt.h"
 #include "dsr-ack.h"

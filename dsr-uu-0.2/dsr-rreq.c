@@ -43,7 +43,7 @@ static unsigned int rreq_seqno;
 #define STATE_IDLE          0
 #define STATE_IN_ROUTE_DISC 1
 
-struct rreq_tbl_entry {
+struct rreq_tbl_entry {     //路由节点
 	list_t l;
 	int state;
 	struct in_addr node_addr;
@@ -56,12 +56,12 @@ struct rreq_tbl_entry {
 	struct tbl rreq_id_tbl;
 };
 
-struct id_entry {
+struct id_entry {           //路由缓存表，每个节点各自不同
 	list_t l;
 	struct in_addr trg_addr;
 	unsigned short id;
 };
-struct rreq_tbl_query {
+struct rreq_tbl_query {          //路由表查询
 	struct in_addr *initiator;
 	struct in_addr *target;
 	unsigned int *id;
@@ -72,12 +72,12 @@ static inline int crit_addr(void *pos, void *data)
 	struct rreq_tbl_entry *e = (struct rreq_tbl_entry *)pos;
 	struct in_addr *a = (struct in_addr *)data;
 
-	if (e->node_addr.s_addr == a->s_addr)
+	if (e->node_addr.s_addr == a->s_addr)         //ip相等
 		return 1;
 	return 0;
 }
 
-static inline int crit_duplicate(void *pos, void *data)
+static inline int crit_duplicate(void *pos, void *data)    //从pos head路由缓存表中找到目标ip返回1 else返回0
 {
 	struct rreq_tbl_entry *e = (struct rreq_tbl_entry *)pos;
 	struct rreq_tbl_query *q = (struct rreq_tbl_query *)data;
@@ -101,7 +101,7 @@ void NSCLASS rreq_tbl_set_max_len(unsigned int max_len)
 	rreq_tbl.max_len = max_len;
 }
 #ifdef __KERNEL__
-static int rreq_tbl_print(struct tbl *t, char *buf)
+static int rreq_tbl_print(struct tbl *t, char *buf)  //打印路由节点信息
 {
 	list_t *pos1, *pos2;
 	int len = 0;
@@ -201,7 +201,7 @@ void NSCLASS rreq_tbl_timeout(unsigned long data)
 	set_timer(e->timer, &expires);
 }
 
-struct rreq_tbl_entry *NSCLASS __rreq_tbl_entry_create(struct in_addr node_addr)
+struct rreq_tbl_entry *NSCLASS __rreq_tbl_entry_create(struct in_addr node_addr)   //##
 {
 	struct rreq_tbl_entry *e;
 
